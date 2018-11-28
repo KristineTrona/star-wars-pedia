@@ -1,0 +1,8 @@
+.navbar {
+  background-color: black;
+  opacity: 0.8; }
+  .navbar .logo {
+    max-height: 70px; }
+
+#movies-list {
+  min-height: 85vh; }
