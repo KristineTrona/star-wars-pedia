@@ -1,15 +1,39 @@
+// #background-video{
+//     background: url('./assets/stars-background.mp4');
+//     background-size: cover;
+//     background-repeat: repeat;
+//     position: absolute;
+//     z-index: -1;
+//     top: 0px;
+//     left: 0px;
+//     min-width: 100vw;
+//     min-height: 100vh;
+// }
+
+.App{
+  background: url('./assets/stars-background-image.jpg');
+  background-size: 100%;
+}
+
 .navbar{
 
   background-color: black;
   opacity: 0.8;
+  border-bottom: 2px white solid;
   
 
   .logo{
     max-height: 70px;
   }
+
 }
 
 #movies-list{
   min-height: 85vh;
+}
+
+footer{
+  background-color: black;
+  opacity: 0.8;
 }
 

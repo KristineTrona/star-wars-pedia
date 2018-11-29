@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../assets/images/star-wars-logo.png'
+import logo from '../assets/star-wars-logo.png'
 import { Link} from 'react-router-dom'
 
 
@@ -11,7 +11,7 @@ export default function Navbar () {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav ml-auto">
+        <ul className="navbar-nav ml-auto mr-5">
           <li className="nav-item">
             <Link to="/movies" className="nav-link">Movies</Link>
           </li>

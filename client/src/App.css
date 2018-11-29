@@ -1,8 +1,17 @@
+.App {
+  background: url("./assets/stars-background-image.jpg");
+  background-size: 100%; }
+
 .navbar {
   background-color: black;
-  opacity: 0.8; }
+  opacity: 0.8;
+  border-bottom: 2px white solid; }
   .navbar .logo {
     max-height: 70px; }
 
 #movies-list {
   min-height: 85vh; }
+
+footer {
+  background-color: black;
+  opacity: 0.8; }
