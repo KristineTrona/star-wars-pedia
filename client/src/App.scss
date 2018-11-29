@@ -1,3 +1,5 @@
+$logoColor: #ffe91b;
+
 // #background-video{
 //     background: url('./assets/stars-background.mp4');
 //     background-size: cover;
@@ -11,21 +13,39 @@
 // }
 
 .App{
+  padding-top: 120px;
   background: url('./assets/stars-background-image.jpg');
   background-size: 100%;
 }
+
 
 .navbar{
 
   background-color: black;
   opacity: 0.8;
   border-bottom: 2px white solid;
+  font-size: 20px;
   
+  .navbar-toggler{
+    border: 1px solid white;
+  }
 
   .logo{
     max-height: 70px;
   }
 
+  .dropdown-menu{
+    background:black;
+  }
+
+  .dropdown-item{
+    color: white;
+  }
+
+  .dropdown-item:hover{
+    background-color: $logoColor;
+    color: black;
+  }
 }
 
 #movies-list{

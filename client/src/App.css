@@ -1,13 +1,24 @@
 .App {
+  padding-top: 120px;
   background: url("./assets/stars-background-image.jpg");
   background-size: 100%; }
 
 .navbar {
   background-color: black;
   opacity: 0.8;
-  border-bottom: 2px white solid; }
+  border-bottom: 2px white solid;
+  font-size: 20px; }
+  .navbar .navbar-toggler {
+    border: 1px solid white; }
   .navbar .logo {
     max-height: 70px; }
+  .navbar .dropdown-menu {
+    background: black; }
+  .navbar .dropdown-item {
+    color: white; }
+  .navbar .dropdown-item:hover {
+    background-color: #ffe91b;
+    color: black; }
 
 #movies-list {
   min-height: 85vh; }

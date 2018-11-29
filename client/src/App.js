@@ -18,6 +18,7 @@ class App extends Component {
         </video> */}
         <Navbar/>
         <Route exact path="/" component={MoviesContainer}/>
+        <Route exact path="/movies" component={MoviesContainer}/>
         <Footer/>
       </div>
     );
