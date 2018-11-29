@@ -9,6 +9,9 @@ class MovieDetailsContainer extends Component{
     this.props.getMovieDetails(parseInt(this.props.match.params.id))
   }
 
+  // componentDidUpdate(prevProps){
+  //   if(this.state.)
+  // }
 
   render(){
 

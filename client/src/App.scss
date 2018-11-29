@@ -18,6 +18,16 @@ $logoColor: #ffe91b;
   background-size: 100%;
 }
 
+#movies-list, #characters-list{
+  min-height: 85vh;
+}
+
+.dark-overlay{
+  background-color: black;
+  opacity: 0.8;
+}
+
+// Styling for the navbar
 
 .navbar{
 
@@ -48,9 +58,22 @@ $logoColor: #ffe91b;
   }
 }
 
-#movies-list{
-  min-height: 85vh;
+
+//Styling for the characters list of the movie details page
+
+#characters-list{
+
+  .table thead{
+    background-color: white;
+    color: black;
+  }
+
+  .table-hover tbody tr:hover {
+    background-color: $logoColor;
+    color: black;
+  }
 }
+
 
 footer{
   background-color: black;

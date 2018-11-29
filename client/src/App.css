@@ -3,6 +3,13 @@
   background: url("./assets/stars-background-image.jpg");
   background-size: 100%; }
 
+#movies-list, #characters-list {
+  min-height: 85vh; }
+
+.dark-overlay {
+  background-color: black;
+  opacity: 0.8; }
+
 .navbar {
   background-color: black;
   opacity: 0.8;
@@ -20,8 +27,13 @@
     background-color: #ffe91b;
     color: black; }
 
-#movies-list {
-  min-height: 85vh; }
+#characters-list .table thead {
+  background-color: white;
+  color: black; }
+
+#characters-list .table-hover tbody tr:hover {
+  background-color: #ffe91b;
+  color: black; }
 
 footer {
   background-color: black;
