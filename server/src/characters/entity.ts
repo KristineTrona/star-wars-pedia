@@ -1,6 +1,6 @@
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne} from 'typeorm'
 import { IsString, MinLength, IsNumber} from '../../node_modules/class-validator';
-import Movie from '../movies/entity'
+import {CharactersMovie} from '../movies/entity'
 import Planet from '../planets/entity'
 
 @Entity()
@@ -30,8 +30,8 @@ export default class Character extends BaseEntity {
   @Column('text', {nullable: true})
   hairColor: string
 
-  @OneToMany(_ => Movie, movie => movie.characters)
-  movies: Movie[]
+  @OneToMany(_ => CharactersMovie, charactersMovie => charactersMovie.character)
+  charactersMovie: CharactersMovie[]
 
   @ManyToOne(_ => Planet, planet => planet.characters)
   planet: Planet

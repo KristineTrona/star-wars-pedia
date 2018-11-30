@@ -21,6 +21,7 @@
     "typescript": "^3.1.6"
   },
   "scripts": {
-    "start": "nodemon tsc"
+    "start": "nodemon",
+    "compile": "tsc"
   }
 }

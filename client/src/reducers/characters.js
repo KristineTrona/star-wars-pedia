@@ -1,4 +1,4 @@
-import {LOAD_MOVIE_DETAILS, SORT_HEIGHT} from '../actions/movies'
+import {LOAD_MOVIE_DETAILS, SORT_HEIGHT} from '../actions/characters'
 
 export default function (state = [], action={}){
   switch (action.type){

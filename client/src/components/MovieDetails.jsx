@@ -31,7 +31,7 @@ export const MovieDetails = (props) =>{
                 <th>{character.name}</th>
                 <td>{character.gender}</td>
                 <td>{character.height}</td>
-                <td>{character.birth_year}</td>
+                <td>{character.birthYear}</td>
               </tr>
             )}
           </tbody>

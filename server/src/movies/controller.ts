@@ -1,25 +1,20 @@
-import { JsonController, Get, Param } from 'routing-controllers'
+import {Controller, Get, Param} from 'routing-controllers'
 import Movie from './entity';
 
 
-@JsonController()
-export default class MovieController {
+@Controller()
+export default class MoviesController {
     
   @Get('/movies')
   async getMovies() {
-    const events = await Movie.find()
-
-
-    return { events }
+    const movies = await Movie.find()
+    return { movies }
   }
 
   @Get('/movies/:id')
-  getEvent(
+  getMovie(
       @Param('id') id: number
   ) {
       return Movie.findOne(id)
   }
-
-
-
 }

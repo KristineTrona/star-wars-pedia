@@ -20,8 +20,8 @@ export default class Movie extends BaseEntity {
   @Column('text', {nullable: true})
   imageURL: string
 
-  @OneToMany(_ => Character, character => character.movies, {eager:true})
-  characters: Character[]
+  @OneToMany(_ => CharactersMovie, charactersMovie => charactersMovie.movie, {eager: true})
+  charactersMovie: CharactersMovie[]
 
 }
 
@@ -32,10 +32,10 @@ export class CharactersMovie extends BaseEntity {
   @PrimaryGeneratedColumn()
   id?: number
 
-  @ManyToOne(_ => Movie, movie => movie.characters)
+  @ManyToOne(_ => Movie, movie => movie.charactersMovie)
   movie: Movie
 
-  @ManyToOne(_ => Character, character => character.movies)
+  @ManyToOne(_ => Character, character => character.charactersMovie, {eager: true})
   character: Character
 
 }

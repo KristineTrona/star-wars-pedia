@@ -1,36 +1,42 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import Pagination from "react-js-pagination";
-import {getMovieDetails, sortHeight} from '../actions/movies'
+// import Pagination from "react-js-pagination";
+import {getCharacterList, sortHeight} from '../actions/characters'
 import {MovieDetails} from './MovieDetails'
 
 
 class MovieDetailsContainer extends Component{
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      activePage: 1
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     activePage: 1
+  //   };
+  // }
  
-  handlePageChange(pageNumber) {
-    console.log(`active page is ${pageNumber}`);
-    this.setState({activePage: pageNumber});
-  }
+  // handlePageChange(pageNumber) {
+  //   console.log(`active page is ${pageNumber}`);
+  //   this.setState({activePage: pageNumber});
+  // }
 
   componentDidMount(){
-    this.props.getMovieDetails(parseInt(this.props.match.params.id))
+    this.props.getCharacterList(parseInt(this.props.match.params.id))
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      this.props.getCharacterList(parseInt(this.props.match.params.id))
+    }
   }
 
   sortAscending = () => {
-    this.props.sortHeight(this.props.selectedMovie.sort((a,b) => {
+    this.props.sortHeight(this.props.characters.sort((a,b) => {
       return a.height-b.height
     }))
   }
 
   sortDescending = () => {
-    this.props.sortHeight(this.props.selectedMovie.sort((a,b) => {
+    this.props.sortHeight(this.props.characters.sort((a,b) => {
       return b.height-a.height
     }))
   }
@@ -39,9 +45,9 @@ class MovieDetailsContainer extends Component{
 
     return (
       <div>
-        <MovieDetails characters={this.props.selectedMovie}
+        <MovieDetails characters={this.props.characters}
         sortAscending={this.sortAscending} sortDescending={this.sortDescending}/>
-        <Pagination
+        {/* <Pagination
           innerClass="pagination justify-content-center"
           itemClass="page-item"
           linkClass="page-link"
@@ -51,7 +57,7 @@ class MovieDetailsContainer extends Component{
           totalItemsCount={this.props.selectedMovie.length}
           pageRangeDisplayed={5}
           onChange={this.handlePageChange.bind(this)}
-        />
+        /> */}
       </div>
     )
   }
@@ -60,12 +66,12 @@ class MovieDetailsContainer extends Component{
 
 const mapStateToProps = (state) => {
   return {
-   selectedMovie: state.selectedMovie
+   characters: state.characters
   }
 }
   
 const mapDispatchToProps = {
-  getMovieDetails,
+  getCharacterList,
   sortHeight
 }
 

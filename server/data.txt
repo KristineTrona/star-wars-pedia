@@ -153,8 +153,8 @@ INSERT INTO characters (id, name, gender, height, birth_year, hair_color, planet
 
 
 INSERT INTO movies (id, name, episode_id, image_url) VALUES
-(1, 'A New Hope', 4, 'https://images-na.ssl-images-amazon.com/images/I/91GAgvnO3AL._RI_.jpg'),
-(2, 'The Empire Strikes Back', 5, 'https://i.pinimg.com/originals/c5/e2/59/c5e2596d97f17499f00609440fd88e36.jpg'),
+(1, 'A New Hope', 4, 'https://images-na.ssl-images-amazon.com/images/I/81aA7hEEykL.jpg'),
+(2, 'The Empire Strikes Back', 5, 'https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg'),
 (3, 'Return of the Jedi', 6, 'https://sc-events.s3.amazonaws.com/4224476/main.jpg'),
 (4, 'The Phantom Menace', 1, 'https://m.media-amazon.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg'),
 (5, 'Attack of the Clones', 2, 'https://m.media-amazon.com/images/M/MV5BMDAzM2M0Y2UtZjRmZi00MzVlLTg4MjEtOTE3NzU5ZDVlMTU5XkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_.jpg'),
