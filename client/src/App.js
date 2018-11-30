@@ -3,6 +3,7 @@ import {Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import './App.css';
+import './bootstrap.css';
 import Navbar from './components/Navbar'
 import MoviesContainer from './components/MoviesContainer'
 import Footer from './components/Footer'

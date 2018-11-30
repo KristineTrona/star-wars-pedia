@@ -5,8 +5,7 @@ const router = new Router
 const swapiUrl = "https://swapi.co/api"
 
 
-router.get('/movies', (req, res) => {
-
+router.get(`/movies`, (req, res) => {
     request(`${swapiUrl}/films`)
     .then(response => res.send(response.body.results))
     .catch(console.error)

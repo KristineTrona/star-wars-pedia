@@ -14,6 +14,6 @@ gulp.task('bootstrap', function(){
 });
 
 gulp.task('watch', function(){
-  gulp.watch(['./src/*.scss'], ['sass']); 
-  gulp.watch(['./node_modules/bootstrap/scss/bootstrap.scss'], ['bootstrap']); 
+  gulp.watch(['./src/*.scss'], ['sass'])
 })
+
