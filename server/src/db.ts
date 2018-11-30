@@ -2,7 +2,7 @@ import { createConnection } from 'typeorm'
 import { DefaultNamingStrategy } from 'typeorm/naming-strategy/DefaultNamingStrategy'
 import { NamingStrategyInterface } from 'typeorm/naming-strategy/NamingStrategyInterface'
 import { snakeCase } from 'typeorm/util/StringUtils'
-import Movie from './movies/entity'
+import Movie, { CharactersMovie } from './movies/entity'
 import Character from './characters/entity'
 import Planet from './planets/entity'
 
@@ -32,7 +32,8 @@ export default () =>
       entities: [
         Movie,
         Character,
-        Planet
+        Planet,
+        CharactersMovie
       ],
       synchronize: true,
       logging: true,
