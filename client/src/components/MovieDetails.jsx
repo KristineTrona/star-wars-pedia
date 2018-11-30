@@ -9,7 +9,11 @@ export const MovieDetails = (props) =>{
           <thead>
             <tr>
                 <th>Name</th>
-                <th>Gender</th>
+                <th>Gender
+                  <div className="btn" onClick={props.filterGender}>
+                    <i className="fas fa-filter"></i>
+                  </div>
+                </th>
                 <th>Height
                   <div className="btn" onClick={props.sortAscending}>
                     <i className="fas fa-sort-up"></i>
