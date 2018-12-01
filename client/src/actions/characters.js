@@ -7,16 +7,23 @@ export const LOAD_MOVIE_DETAILS = 'LOAD_MOVIE_DETAILS'
 export const SORT_HEIGHT = 'SORT_HEIGHT'
 
 
-const loadMovieDetails = (charactersList) => ({
+const loadMovieDetails = (data) => ({
   type: LOAD_MOVIE_DETAILS,
-  payload: charactersList.map(listId => listId.character)
+  payload: {
+    characters: data.movie.charactersMovie.map(id => id.character),
+    totalCount: data.totalCount, 
+    totalPages: Math.ceil(data.totalPages),
+    next: data.next, 
+    previous: data.previous, 
+    range: data.range
+  }
 })
 
 
-export const getCharacterList = (movieId) => (dispatch) => {
+export const getCharacterList = (movieId, page) => (dispatch) => {
   request
-    .get(`${baseUrl}/movies/${movieId}`)
-    .then(result => dispatch(loadMovieDetails(result.body.charactersMovie)))
+    .get(`${baseUrl}/movies/${movieId}?page=${page}`)
+    .then(result => dispatch(loadMovieDetails(result.body)))
     .catch(err => console.error(err))
 }
 

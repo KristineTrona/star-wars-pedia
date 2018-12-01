@@ -26,7 +26,7 @@ export const MovieDetails = (props) =>{
             </tr>
           </thead>
           <tbody>
-            {props.characters.map(character => 
+            {props.characters && props.characters.map(character => 
               <tr key={character.name}>
                 <th>{character.name}</th>
                 <td>{character.gender}</td>
