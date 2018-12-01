@@ -43,6 +43,8 @@
     position: fixed;
     background: white;
     z-index: 1; }
+    #characters-list .gender-list .list-item {
+      display: block; }
     #characters-list .gender-list .list-item:hover {
       background: #ffe91b;
       color: black; }

@@ -9,21 +9,15 @@ import {MovieDetails} from './MovieDetails'
 class MovieDetailsContainer extends Component{
 
     state = {
-      orderBy: 'name',
-      order: 'asc',
       gender: 'all',
       listOpen: false
     }
  
   loadPage = (newString) =>  {
-    // let values = queryString.parse(this.props.location.search)
-    // if(newString){
-      let values = queryString.parse(newString)
-      this.props.history.push(`${this.props.location.pathname}?${newString}`)
-      this.props.getUpdatedPage(this.props.match.params.id, values.page, this.state.orderBy, this.state.order, this.state.gender)
-    // } 
-    // if (!values.page) values.page = 1
-    // this.props.getCharacterList(parseInt(this.props.match.params.id), values.page)
+
+    let values = queryString.parse(newString)
+    this.props.history.push(`${this.props.location.pathname}?${newString}&gender=${this.state.gender}`)
+    this.props.getUpdatedPage(this.props.match.params.id, values.page, this.state.gender)
 
   }
 
@@ -32,17 +26,21 @@ class MovieDetailsContainer extends Component{
     let values = queryString.parse(this.props.location.search)
 
     if (!values.page) values.page = 1
-    this.props.getCharacterList(parseInt(this.props.match.params.id), values.page, this.state.orderBy, this.state.order, this.state.gender)
+    this.props.getCharacterList(parseInt(this.props.match.params.id), values.page, this.state.gender)
 
-    this.props.getUpdatedPage(this.props.match.params.id, values.page, this.state.orderBy, this.state.order, this.state.gender)
-    // this.loadPage()
+    this.props.getUpdatedPage(this.props.match.params.id, values.page, this.state.gender)
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.match.params.id !== prevProps.match.params.id) {
-  //     this.loadPage()
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      let values = queryString.parse(this.props.location.search)
+
+      if (!values.page) values.page = 1
+      this.props.getCharacterList(parseInt(this.props.match.params.id), values.page, this.state.gender)
+  
+      this.props.getUpdatedPage(this.props.match.params.id, values.page, this.state.gender)
+    }
+  }
 
   sortAscending = () => {
     this.props.sortHeight(this.props.characters.characters.sort((a,b) => {
@@ -62,15 +60,24 @@ class MovieDetailsContainer extends Component{
     }))
   }
 
+
+  filterGender = (selectedGender) => {
+    let values = queryString.parse(this.props.location.search)
+    this.setState({gender: selectedGender})
+    this.props.getUpdatedPage(this.props.match.params.id, values.page, selectedGender)
+    this.props.history.push(`${this.props.location.pathname}?page=${values.page}&gender=${selectedGender}`)
+  }
+
   render(){
 
-    const {characters, totalCount, totalPages, next, previous, range} = this.props.characters
+    const {characters, totalCount, totalPages, next, previous, range, gender} = this.props.characters
   
     return (
       <div>
         <MovieDetails characters={ characters && characters.slice(range.first-1, range.last)}
           sortAscending={this.sortAscending} sortDescending={this.sortDescending}
-          toggleGenderList={this.toggleGenderList} listState={this.state.listOpen}/>
+          toggleGenderList={this.toggleGenderList} gender={gender} listState={this.state.listOpen}
+          filterGender={this.filterGender}/>
         { totalPages > 1 &&
         <Pagination count={totalCount} pages={totalPages} next={next} previous={previous} range={range} 
           handlePageChange={this.loadPage} movieId={this.props.match.params.id}

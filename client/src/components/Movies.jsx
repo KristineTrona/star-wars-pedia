@@ -8,7 +8,7 @@ export const Movies = (props) =>{
       <div className="container">
         <div className="row">
           {props.movies.map(movie =>
-            <Link to={`/movies/${movie.id}?page=1&orderBy=name&order=asc&gender=all`} className="my-4 col-lg-4 col-md-6" style={{textDecoration: "none", color: "inherit"}} key={movie.id}>
+            <Link to={`/movies/${movie.id}?page=1&gender=all`} className="my-4 col-lg-4 col-md-6" style={{textDecoration: "none", color: "inherit"}} key={movie.id}>
               <div className="card">
               <img src={movie.imageURL} alt="star-wars-poster" className="img-fluid card-image-top"/>
                 <div className="card-body text-center">

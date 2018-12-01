@@ -14,8 +14,6 @@ export default class MoviesController {
   @Get('/movies/:id')
   async getMovie(
       @QueryParam('page') page: number,
-      @QueryParam('orderBy') orderBy: string,
-      @QueryParam('order') order: string,
       @QueryParam('gender') gender: string,
       @Param('id') id: number
   ) {
@@ -41,7 +39,7 @@ export default class MoviesController {
     if (page > 1) previous = `page=${page-1}`
     else previous = null
 
-    return { movie, totalCount, totalPages, next, previous, range, orderBy, order, gender }
+    return { movie, totalCount, totalPages, next, previous, range, gender }
     } else{
     throw new NotFoundError('Cannot find the movie')
     }

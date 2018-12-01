@@ -27,21 +27,22 @@ const loadUpdatedPage = (data) => ({
     totalPages: Math.ceil(data.totalPages),
     next: data.next, 
     previous: data.previous, 
-    range: data.range
+    range: data.range,
+    gender: data.gender
   }
 }) 
 
 
-export const getCharacterList = (movieId, page, orderBy, order, gender) => (dispatch) => {
+export const getCharacterList = (movieId, page, gender) => (dispatch) => {
   request
-    .get(`${baseUrl}/movies/${movieId}?page=${page}&orderBy=${orderBy}&order=${order}&gender=${gender}`)
+    .get(`${baseUrl}/movies/${movieId}?page=${page}&gender=${gender}`)
     .then(result => dispatch(loadMovieDetails(result.body)))
     .catch(err => console.error(err))
 }
 
-export const getUpdatedPage = (movieId, page, orderBy, order, gender) => (dispatch) => {
+export const getUpdatedPage = (movieId, page, gender) => (dispatch) => {
   request
-    .get(`${baseUrl}/movies/${movieId}?page=${page}&orderBy=${orderBy}&order=${order}&gender=${gender}`)
+    .get(`${baseUrl}/movies/${movieId}?page=${page}&gender=${gender}`)
     .then(result => dispatch(loadUpdatedPage(result.body)))
     .catch(err => console.error(err))
 }

@@ -88,6 +88,10 @@ $logoColor: #ffe91b;
     background: white;
     z-index: 1;
 
+    .list-item{
+      display:block;
+    }
+
     .list-item:hover{
       background: $logoColor;
       color: black;

@@ -18,7 +18,7 @@ export const MovieDetails = (props) =>{
                   {props.listState === true && 
                   <div className="gender-list">
                     {genders.map((gender) => (
-                    <div onClick = {props.filterGender} className="list-item px-3 py-1" key={gender}>{gender}</div>
+                    <div onClick = {() => props.filterGender(gender)} className="btn list-item px-3 py-1" key={gender}>{gender}</div>
                       ))}
                     </div>}
                 </th>
@@ -34,13 +34,23 @@ export const MovieDetails = (props) =>{
             </tr>
           </thead>
           <tbody>
-            {props.characters && props.characters.map(character => 
-              <tr key={character.name}>
-                <th>{character.name}</th>
-                <td>{character.gender}</td>
-                <td>{character.height}</td>
-                <td>{character.birthYear}</td>
-              </tr>
+            {props.characters && (props.gender === "male" || props.gender === "female") &&props.characters.filter(character => 
+              character.gender === props.gender).map(character => 
+                <tr key={character.name}>
+                  <th>{character.name}</th>
+                  <td>{character.gender}</td>
+                  <td>{character.height}</td>
+                  <td>{character.birthYear}</td>
+                </tr>
+            )}
+
+            {props.characters && (props.gender === "all") && props.characters.map(character => 
+                <tr key={character.name}>
+                  <th>{character.name}</th>
+                  <td>{character.gender}</td>
+                  <td>{character.height}</td>
+                  <td>{character.birthYear}</td>
+                </tr>
             )}
           </tbody>
          </table>
