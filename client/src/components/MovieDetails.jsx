@@ -1,5 +1,7 @@
 import React from 'react'
 
+const genders =['male', 'female', 'all']
+
 export const MovieDetails = (props) =>{
   return (
     <div id="characters-list">
@@ -10,9 +12,15 @@ export const MovieDetails = (props) =>{
             <tr>
                 <th>Name</th>
                 <th>Gender
-                  <div className="btn" onClick={props.filterGender}>
-                    <i className="fas fa-filter"></i>
+                  <div className="btn" onClick={props.toggleGenderList}>
+                    <i className="fas fa-sort-down"></i>
                   </div>
+                  {props.listState === true && 
+                  <div className="gender-list">
+                    {genders.map((gender) => (
+                    <div onClick = {props.filterGender} className="list-item px-3 py-1" key={gender}>{gender}</div>
+                      ))}
+                    </div>}
                 </th>
                 <th>Height
                   <div className="btn" onClick={props.sortAscending}>

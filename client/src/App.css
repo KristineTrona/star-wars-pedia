@@ -30,13 +30,22 @@
 #movies-list img {
   max-height: 500px; }
 
-#characters-list .table thead {
-  background-color: white;
-  color: black; }
-
-#characters-list .table-hover tbody tr:hover {
-  background-color: #ffe91b;
-  color: black; }
+#characters-list {
+  position: relative;
+  z-index: 0; }
+  #characters-list .table thead {
+    background-color: white;
+    color: black; }
+  #characters-list .table-hover tbody tr:hover {
+    background-color: #ffe91b;
+    color: black; }
+  #characters-list .gender-list {
+    position: fixed;
+    background: white;
+    z-index: 1; }
+    #characters-list .gender-list .list-item:hover {
+      background: #ffe91b;
+      color: black; }
 
 footer {
   background-color: black;

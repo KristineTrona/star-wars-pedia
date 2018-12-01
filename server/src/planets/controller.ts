@@ -1,4 +1,4 @@
-import {Controller, Get} from 'routing-controllers'
+import {Controller, Get, Param} from 'routing-controllers'
 import Planet from './entity';
 
 
@@ -11,11 +11,11 @@ export default class PlanetsController {
     return { planets}
   }
 
-//   @Get('/movies/:id')
-//   getMovie(
-//       @Param('id') id: number
-//   ) {
-//       return Movie.findOne(id)
-//   }
+  @Get('/planets/:id')
+  getMovie(
+      @Param('id') id: number
+  ) {
+      return Planet.findOne(id)
+  }
 
 }
