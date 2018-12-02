@@ -42,8 +42,7 @@ class MovieDetailsContainer extends Component{
 
     if(!pageValue) pageValue= this.values.page
 
-    this.props.history.push(`${this.props.location.pathname}?page=${pageValue}
-      &gender=${this.values.gender}&orderBy=${this.values.orderBy}&order=${this.values.order}`)
+    this.props.history.push(`${this.props.location.pathname}?page=${pageValue}&gender=${this.values.gender}&orderBy=${this.values.orderBy}&order=${this.values.order}`)
       
     this.props.getCharacterList(parseInt(this.props.match.params.id), pageValue, 
       this.values.gender, this.values.orderBy, this.values.order)
@@ -57,8 +56,7 @@ class MovieDetailsContainer extends Component{
     this.props.getCharacterList(parseInt(this.props.match.params.id), this.values.page, 
       this.values.gender, orderBy, order)
 
-    this.props.history.push(`${this.props.location.pathname}?page=${this.values.page}
-      &gender=${this.values.gender}&orderBy=${orderBy}&order=${order}`)
+    this.props.history.push(`${this.props.location.pathname}?page=${this.values.page}&gender=${this.values.gender}&orderBy=${orderBy}&order=${order}`)
   }
 
   // Every time the gender filter icon is clicked the list state is toggled:
@@ -76,8 +74,7 @@ class MovieDetailsContainer extends Component{
     this.props.getCharacterList(parseInt(this.props.match.params.id), this.values.page, gender, 
       this.values.orderBy, this.values.order)
     
-    this.props.history.push(`${this.props.location.pathname}?page=${this.values.page}
-      &gender=${gender}&orderBy=${this.values.orderBy}&order=${this.values.order}`)
+    this.props.history.push(`${this.props.location.pathname}?page=${this.values.page}&gender=${gender}&orderBy=${this.values.orderBy}&order=${this.values.order}`)
   }
 
   render(){
@@ -86,7 +83,7 @@ class MovieDetailsContainer extends Component{
   
     return (
       <div>
-        <MovieDetails characters={characters && characters.slice(range.first-1, range.last)}
+        <MovieDetails characters={characters}
           sortCharacters={this.sortCharacters} toggleGenderList={this.toggleGenderList} 
           listState={this.state.listOpen} filterGender={this.filterGender}/>
         { totalPages > 1 &&

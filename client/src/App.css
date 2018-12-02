@@ -1,7 +1,15 @@
 .App {
-  padding-top: 120px;
-  background: url("./assets/stars-background-image.jpg");
-  background-size: 100%; }
+  padding-top: 130px; }
+  .App #background-video {
+    background: url("./assets/stars-background.mp4");
+    background-size: cover;
+    background-repeat: repeat;
+    position: fixed;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+    min-width: 100vw;
+    min-height: 100vh; }
 
 #movies-list, #characters-list, #planets-list {
   min-height: 85vh; }
@@ -26,6 +34,8 @@
   .navbar .dropdown-item:hover {
     background-color: #ffe91b;
     color: black; }
+  .navbar audio::-webkit-media-controls-panel {
+    background-color: darkgray; }
 
 #movies-list img {
   max-height: 500px; }

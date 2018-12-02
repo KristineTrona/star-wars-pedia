@@ -10,7 +10,6 @@ export default class Character extends BaseEntity {
   id?: number
 
   @IsString()
-  @MinLength(2)
   @Column('text', {nullable:false})
   name: string
 

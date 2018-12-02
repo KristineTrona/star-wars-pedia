@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../assets/star-wars-logo.png'
 import { Link} from 'react-router-dom'
+import music from '../assets/star-wars-audio-theme.mp3'
 
 
 export default function Navbar () {
@@ -25,7 +26,7 @@ export default function Navbar () {
                 <Link to="/movies/7?page=1" className="dropdown-item">The Force Awakens</Link>
               </div>
           </li>
-          <li className="nav-item dropdown">
+          <li className="nav-item mr-3 dropdown">
             <Link to="/planets" className="nav-link dropdown-toggle" data-toggle="dropdown" 
             data-target="#planets-dropdown">Climates</Link>
             <div className="dropdown-menu text-white" id="planets-dropdown">
@@ -46,6 +47,12 @@ export default function Navbar () {
               <Link to="/planets/?climate=15" className="dropdown-item">Windy</Link>
               <Link to="/planets/?climate=16" className="dropdown-item">Unknown</Link>
             </div>
+          </li>
+          <li className="nav-item">
+            <audio className = "gameMusic" autoPlay loop controls> 
+              <source src={music} type="audio/mpeg"/>
+                If you see this, update your browser
+            </audio>  
           </li>
         </ul>
       </div>

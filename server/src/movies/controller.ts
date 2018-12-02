@@ -28,33 +28,15 @@ export default class MoviesController {
 
       // Retrieve the list of characters from the movie details:
 
-      let characters = movie.charactersMovie.map(characterid => characterid.character)
+      let characters = movie.charactersMovie.map(characterId => characterId.character)
 
-      // Pagination:
-      const totalCount = await movie.charactersMovie.length
-
-      if (!page) page = 1
-      const limit = 30
-      const offset = (page - 1 ) * limit
-      const totalPages = Math.ceil(totalCount / limit)
-      let next
-      let previous
-      let range = {
-        first: offset+1, 
-        last: (offset + limit > totalCount) ? totalCount : offset + limit
-      }
-      if (totalPages > page) next = {page: page+1}
-      else next = null
-      if (page > 1) previous = {page: page-1}
-      else previous = null
-
-      // Filter based on gender:
+      // Filter based on gender, if the value is "all" then no filteris applied:
 
       if(gender === "male" || gender === "female"){
         characters = characters.filter(character => character.gender === gender)
       }
 
-      //Sorting:
+      //Sorting - first check if orderBy and order are both specified, then sort accordingly:
 
       if(orderBy && order){
         if(orderBy === "height" && order === "asc"){
@@ -75,10 +57,31 @@ export default class MoviesController {
           })
         }
       }
+
+      // Pagination:
+      
+      const totalCount = await movie.charactersMovie.length
+
+      if (!page) page = 1
+      const limit = 30
+      const offset = (page - 1 ) * limit
+      const totalPages = Math.ceil(totalCount / limit)
+      let next
+      let previous
+      let range = {
+        first: offset+1, 
+        last: (offset + limit > totalCount) ? totalCount : offset + limit
+      }
+      if (totalPages > page) next = {page: page+1}
+      else next = null
+      if (page > 1) previous = {page: page-1}
+      else previous = null
+
+      characters = characters.slice(range.first-1, range.last)
     
       return { characters, totalCount, totalPages, next, previous, range }
 
-    } else{
+    } else {
       throw new NotFoundError('Movie with this id does not exist')}
     }
 }
