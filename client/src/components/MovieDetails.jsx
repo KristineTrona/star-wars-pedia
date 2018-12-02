@@ -12,16 +12,26 @@ export const MovieDetails = (props) =>{
             <tr>
                 <th>Name</th>
                 <th>Gender
+
+                  {/* On click toggles the genderList */}
+
                   <div className="btn" onClick={props.toggleGenderList}>
                     <i className="fas fa-sort-down"></i>
                   </div>
+
+                  {/* If the list is open, shows all gender filters and the gender that is clicked is set as a filter */}
+
                   {props.listState === true && 
                   <div className="gender-list">
                     {genders.map((gender) => (
-                    <div onClick = {() => {props.filterGender(gender); props.toggleGenderList()}} className="btn list-item px-3 py-1" key={gender}>{gender}</div>
-                      ))}
-                    </div>}
+                      <div onClick = {() => {props.filterGender(gender); props.toggleGenderList()}} className="btn list-item px-3 py-1" key={gender}>{
+                        gender}
+                      </div>))}
+                  </div>}
                 </th>
+
+                {/* Clicking on the specific icon calls sortCharacters function with the appropriate parameters */}
+
                 <th>Height
                   <div className="btn" onClick={() => props.sortCharacters("height", "asc")}>
                     <i className="fas fa-sort-up"></i>
@@ -38,6 +48,7 @@ export const MovieDetails = (props) =>{
                     <i className="fas fa-sort-down"></i>
                   </div>
                 </th>
+                
             </tr>
           </thead>
           <tbody>

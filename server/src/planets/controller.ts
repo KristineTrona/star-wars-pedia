@@ -1,5 +1,5 @@
-import {Controller, Get, Param, QueryParam} from 'routing-controllers'
-import Planet, {PlanetsClimate}from './entity';
+import {Controller, Get, QueryParam} from 'routing-controllers'
+import {PlanetsClimate}from './entity';
 import Climate from '../climates/entity'
 
 

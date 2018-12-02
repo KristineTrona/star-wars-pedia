@@ -9,9 +9,7 @@ class MoviesContainer extends Component{
     this.props.getMovies()
   }
 
-
   render(){
-
     return (
       <Movies movies={this.props.movies}/>
     )
