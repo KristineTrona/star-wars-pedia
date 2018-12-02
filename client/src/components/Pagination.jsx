@@ -16,20 +16,20 @@ export default function Pagination(props) {
       <ul className="pagination justify-content-center">
         { props.previous !== null &&
         <li className="page-item">
-            <div className="page-link" onClick={() => props.handlePageChange(props.previous)}>
+            <div className="page-link" onClick={() => props.handlePageChange(props.previous.page)}>
               <span>&laquo;</span>
             </div>
         </li>
         }
         { props.pages &&
          createButtons(props.pages).map(button =>
-            <div className="page-link" onClick={() => props.handlePageChange(`page=${button}`)} key={button}>
+            <div className="page-link" onClick={() => props.handlePageChange(button)} key={button}>
               {button}
             </div>
           )
         }
         { props.next !== null &&
-        <li className="page-item" onClick={() => props.handlePageChange(props.next)}>
+        <li className="page-item" onClick={() => props.handlePageChange(props.next.page)}>
             <div className="page-link">
               <span>&raquo;</span>
             </div>

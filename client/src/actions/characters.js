@@ -10,46 +10,14 @@ export const SORT_HEIGHT = 'SORT_HEIGHT'
 
 const loadMovieDetails = (data) => ({
   type: LOAD_MOVIE_DETAILS,
-  payload: {
-    characters: data.movie.charactersMovie.map(id => id.character),
-    // totalCount: data.totalCount, 
-    // totalPages: Math.ceil(data.totalPages),
-    // next: data.next, 
-    // previous: data.previous, 
-    // range: data.range
-  }
+  payload: data
 })
 
-const loadUpdatedPage = (data) => ({
-  type: UPDATE_PAGE_DETAILS,
-  payload: {
-    totalCount: data.totalCount, 
-    totalPages: Math.ceil(data.totalPages),
-    next: data.next, 
-    previous: data.previous, 
-    range: data.range,
-    gender: data.gender
-  }
-}) 
 
 
-export const getCharacterList = (movieId, page, gender) => (dispatch) => {
+export const getCharacterList = (movieId, page, gender, orderBy, order) => (dispatch) => {
   request
-    .get(`${baseUrl}/movies/${movieId}?page=${page}&gender=${gender}`)
+    .get(`${baseUrl}/movies/${movieId}?page=${page}&gender=${gender}&orderBy=${orderBy}&order=${order}`)
     .then(result => dispatch(loadMovieDetails(result.body)))
     .catch(err => console.error(err))
-}
-
-export const getUpdatedPage = (movieId, page, gender) => (dispatch) => {
-  request
-    .get(`${baseUrl}/movies/${movieId}?page=${page}&gender=${gender}`)
-    .then(result => dispatch(loadUpdatedPage(result.body)))
-    .catch(err => console.error(err))
-}
-
-export const sortHeight = (characterList) => {
-  return {
-    type: SORT_HEIGHT,
-    payload: characterList
-  }
 }

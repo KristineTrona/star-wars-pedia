@@ -15,34 +15,72 @@ export default class MoviesController {
   async getMovie(
       @QueryParam('page') page: number,
       @QueryParam('gender') gender: string,
+      @QueryParam('orderBy') orderBy: string,
+      @QueryParam('order') order: string,
       @Param('id') id: number
   ) {
 
     const movie = await Movie.findOne(id)
 
+    // First check if there is a movie with this id, if not throw 404 Not found error
+
     if(movie){
-    const totalCount = await movie.charactersMovie.length
 
-    if (!page) page = 1
-    const limit = 30
-    const offset = (page - 1 ) * limit
-    const totalPages = totalCount / limit
-    let next
-    let previous
-    let range = {
-      first: offset+1, 
-      last: (offset + limit > totalCount) ? totalCount : offset + limit
-    }
+      // Retrieve the list of characters from the movie details:
 
-    if (totalPages > page) next = `page=${page+1}`
-    else next = null
-    if (page > 1) previous = `page=${page-1}`
-    else previous = null
+      let characters = movie.charactersMovie.map(characterid => characterid.character)
 
-    return { movie, totalCount, totalPages, next, previous, range, gender }
+      // Pagination:
+      const totalCount = await movie.charactersMovie.length
+
+      if (!page) page = 1
+      const limit = 30
+      const offset = (page - 1 ) * limit
+      const totalPages = Math.ceil(totalCount / limit)
+      let next
+      let previous
+      let range = {
+        first: offset+1, 
+        last: (offset + limit > totalCount) ? totalCount : offset + limit
+      }
+      if (totalPages > page) next = {page: page+1}
+      else next = null
+      if (page > 1) previous = {page: page-1}
+      else previous = null
+
+      // Filter based on gender:
+
+      if(gender === "male" || gender === "female"){
+        characters = characters.filter(character => character.gender === gender)
+      }
+
+      //Sorting:
+
+      if(orderBy && order){
+        if(orderBy === "height" && order === "asc"){
+          characters.sort((a,b) => {
+            return a.height-b.height
+          })
+        } else if(orderBy === "height" && order ==="desc"){
+          characters.sort((a,b) => {
+            return b.height-a.height
+          })
+        } else if(orderBy ==="age" && order === "asc"){
+          characters.sort((a,b) => {
+            return parseInt(a.birthYear)-parseInt(b.birthYear)
+          })
+        } else if(orderBy ==="age" && order === "desc"){
+          characters.sort((a,b) => {
+            return parseInt(b.birthYear)-parseInt(a.birthYear)
+          })
+        }else{
+          characters.map(character => character.name).sort()
+        }
+    
+      return { characters, totalCount, totalPages, next, previous, range, gender }
+
     } else{
-    throw new NotFoundError('Cannot find the movie')
+      throw new NotFoundError('Movie with this id does not exist')}
     }
-
   }
 }

@@ -18,33 +18,30 @@ export const MovieDetails = (props) =>{
                   {props.listState === true && 
                   <div className="gender-list">
                     {genders.map((gender) => (
-                    <div onClick = {() => props.filterGender(gender)} className="btn list-item px-3 py-1" key={gender}>{gender}</div>
+                    <div onClick = {() => {props.filterGender(gender); props.toggleGenderList()}} className="btn list-item px-3 py-1" key={gender}>{gender}</div>
                       ))}
                     </div>}
                 </th>
                 <th>Height
-                  <div className="btn" onClick={props.sortAscending}>
+                  <div className="btn" onClick={() => props.sortCharacters("height", "asc")}>
                     <i className="fas fa-sort-up"></i>
                   </div>
-                  <div className="btn" onClick={props.sortDescending}>
+                  <div className="btn" onClick={() => props.sortCharacters("height", "desc")}>
                     <i className="fas fa-sort-down"></i>
                   </div>
                 </th>
-                <th>Age</th>
+                <th>Birth Year
+                <div className="btn" onClick={() => props.sortCharacters("age", "asc")}>
+                    <i className="fas fa-sort-up"></i>
+                  </div>
+                  <div className="btn" onClick={() => props.sortCharacters("age", "desc")}>
+                    <i className="fas fa-sort-down"></i>
+                  </div>
+                </th>
             </tr>
           </thead>
           <tbody>
-            {props.characters && (props.gender === "male" || props.gender === "female") &&props.characters.filter(character => 
-              character.gender === props.gender).map(character => 
-                <tr key={character.name}>
-                  <th>{character.name}</th>
-                  <td>{character.gender}</td>
-                  <td>{character.height}</td>
-                  <td>{character.birthYear}</td>
-                </tr>
-            )}
-
-            {props.characters && (props.gender === "all") && props.characters.map(character => 
+            {props.characters && props.characters.map(character => 
                 <tr key={character.name}>
                   <th>{character.name}</th>
                   <td>{character.gender}</td>
