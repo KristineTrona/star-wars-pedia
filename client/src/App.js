@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 import MoviesContainer from './components/MoviesContainer'
 import Footer from './components/Footer'
 import MovieDetailsContainer from './components/MovieDetailsContainer'
+import PlanetsContainer from './components/PlanetsContainer'
 // import starsVideo from './assets/stars-background.mp4'
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
         <Route exact path="/" component={MoviesContainer}/>
         <Route exact path="/movies" component={MoviesContainer}/>
         <Route exact path="/movies/:id" component={MovieDetailsContainer}/>
+        <Route exact path="/planets" component={PlanetsContainer}/>
         <Footer/>
       </div>
     );

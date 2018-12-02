@@ -73,14 +73,12 @@ export default class MoviesController {
           characters.sort((a,b) => {
             return parseInt(b.birthYear)-parseInt(a.birthYear)
           })
-        }else{
-          characters.map(character => character.name).sort()
         }
+      }
     
-      return { characters, totalCount, totalPages, next, previous, range, gender }
+      return { characters, totalCount, totalPages, next, previous, range }
 
     } else{
       throw new NotFoundError('Movie with this id does not exist')}
     }
-  }
 }

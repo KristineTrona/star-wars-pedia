@@ -1,21 +1,20 @@
-import {Controller, Get, Param} from 'routing-controllers'
-import Planet from './entity';
+import {Controller, Get, Param, QueryParam} from 'routing-controllers'
+import Planet, {PlanetsClimate}from './entity';
+import Climate from '../climates/entity'
 
 
 @Controller()
 export default class PlanetsController {
     
   @Get('/planets')
-  async getPlanets() {
-    const planets = await Planet.find()
-    return { planets}
-  }
-
-  @Get('/planets/:id')
-  getMovie(
-      @Param('id') id: number
+  async getPlanets(
+    @QueryParam('climate') climate: Climate
   ) {
-      return Planet.findOne(id)
+    let planetList = await PlanetsClimate.find({climate})
+
+    let planets = planetList.map(id => ({id: id.planet.id, name: id.planet.name, characters: id.planet.characters.filter(character => character.hairColor === "brown" || character.hairColor === "black")}))
+    
+    return {planets}
   }
 
 }

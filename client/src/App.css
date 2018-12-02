@@ -3,7 +3,7 @@
   background: url("./assets/stars-background-image.jpg");
   background-size: 100%; }
 
-#movies-list, #characters-list {
+#movies-list, #characters-list, #planets-list {
   min-height: 85vh; }
 
 .dark-overlay {

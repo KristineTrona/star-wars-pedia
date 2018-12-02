@@ -12,7 +12,7 @@ export default function Navbar () {
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ml-auto mr-5">
-          <li className="nav-item dropdown">
+          <li className="nav-item dropdown mr-3">
             <Link to="/movies" className="nav-link dropdown-toggle" data-toggle="dropdown" 
             data-target="#movies-dropdown">Movies</Link>
               <div className="dropdown-menu text-white" id="movies-dropdown">
@@ -30,24 +30,22 @@ export default function Navbar () {
             data-target="#planets-dropdown">Climates</Link>
             <div className="dropdown-menu text-white" id="planets-dropdown">
               <Link to="/planets/?climate=1" className="dropdown-item">Arid</Link>
-              <Link to="/planets/?climate=1" className="dropdown-item">Artic</Link>
-              <Link to="/planets/?climate=1" className="dropdown-item">Frigid</Link>
-              <Link to="/planets/?climate=1" className="dropdown-item">Frozen</Link>
-              <Link to="/planets/?climate=1" className="dropdown-item">Hot</Link>
-              <Link to="/planets/?climate=1" className="dropdown-item">Humid</Link>
-              <Link to="/planets/?climate=1" className="dropdown-item">Murky</Link>
-              <Link to="/planets/?climate=1" className="dropdown-item">Polluted</Link>
-              <Link to="/planets/?climate=1" className="dropdown-item">Rocky</Link>
-              <Link to="/planets/?climate=1" className="dropdown-item">Subartic</Link>
-              <Link to="/planets/?climate=1" className="dropdown-item">Superheated</Link>
-              <Link to="/planets/?climate=1" className="dropdown-item">Temperate</Link>
-              <Link to="/planets/?climate=1" className="dropdown-item">Tropical</Link>
-              <Link to="/planets/?climate=1" className="dropdown-item">Windy</Link>
-              <Link to="/planets/?climate=1" className="dropdown-item">Unknown</Link>
+              <Link to="/planets/?climate=2" className="dropdown-item">Artic</Link>
+              <Link to="/planets/?climate=3" className="dropdown-item">Artificial temperate</Link>
+              <Link to="/planets/?climate=4" className="dropdown-item">Frigid</Link>
+              <Link to="/planets/?climate=5" className="dropdown-item">Frozen</Link>
+              <Link to="/planets/?climate=6" className="dropdown-item">Hot</Link>
+              <Link to="/planets/?climate=7" className="dropdown-item">Humid</Link>
+              <Link to="/planets/?climate=8" className="dropdown-item">Murky</Link>
+              <Link to="/planets/?climate=9" className="dropdown-item">Polluted</Link>
+              <Link to="/planets/?climate=10" className="dropdown-item">Rocky</Link>
+              <Link to="/planets/?climate=11" className="dropdown-item">Subartic</Link>
+              <Link to="/planets/?climate=12" className="dropdown-item">Superheated</Link>
+              <Link to="/planets/?climate=13" className="dropdown-item">Temperate</Link>
+              <Link to="/planets/?climate=14" className="dropdown-item">Tropical</Link>
+              <Link to="/planets/?climate=15" className="dropdown-item">Windy</Link>
+              <Link to="/planets/?climate=16" className="dropdown-item">Unknown</Link>
             </div>
-          </li>
-          <li className="nav-item">
-            <Link to="/quiz" className="nav-link">Quiz</Link>
           </li>
         </ul>
       </div>

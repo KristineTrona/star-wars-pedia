@@ -4,7 +4,8 @@ import { NamingStrategyInterface } from 'typeorm/naming-strategy/NamingStrategyI
 import { snakeCase } from 'typeorm/util/StringUtils'
 import Movie, { CharactersMovie } from './movies/entity'
 import Character from './characters/entity'
-import Planet from './planets/entity'
+import Planet, { PlanetsClimate } from './planets/entity'
+import Climate from './climates/entity'
 
 class CustomNamingStrategy extends DefaultNamingStrategy implements NamingStrategyInterface {
 
@@ -33,7 +34,9 @@ export default () =>
         Movie,
         Character,
         Planet,
-        CharactersMovie
+        CharactersMovie,
+        Climate,
+        PlanetsClimate
       ],
       synchronize: true,
       logging: true,
