@@ -59,7 +59,7 @@ export default class MoviesController {
       }
 
       // Pagination:
-      
+
       const totalCount = await movie.charactersMovie.length
 
       if (!page) page = 1
@@ -76,8 +76,6 @@ export default class MoviesController {
       else next = null
       if (page > 1) previous = {page: page-1}
       else previous = null
-
-      characters = characters.slice(range.first-1, range.last)
     
       return { characters, totalCount, totalPages, next, previous, range }
 

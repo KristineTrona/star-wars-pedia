@@ -83,10 +83,10 @@ class MovieDetailsContainer extends Component{
   
     return (
       <div>
-        <MovieDetails characters={characters}
+        <MovieDetails characters={ characters && characters.slice(range.first-1, range.last)}
           sortCharacters={this.sortCharacters} toggleGenderList={this.toggleGenderList} 
           listState={this.state.listOpen} filterGender={this.filterGender}/>
-        { totalPages > 1 &&
+        { characters && characters.length > 30 &&
         <Pagination count={totalCount} pages={totalPages} next={next} previous={previous} range={range} 
           handlePageChange={this.handlePageChange} movieId={this.props.match.params.id}
           history={this.props.history}/>

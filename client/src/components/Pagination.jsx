@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+// Creates numbered buttons based on the number of total pages:
+
 const createButtons = (number) => {
   const buttons = []
   for(let i=0; i<number; i++){

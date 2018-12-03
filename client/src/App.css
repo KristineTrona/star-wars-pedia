@@ -58,6 +58,49 @@
     #characters-list .gender-list .list-item:hover {
       background: #ffe91b;
       color: black; }
+  @media (max-width: 799px) {
+    #characters-list .gender-table-heading {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: end; }
+    #characters-list .height-table-heading {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: end; }
+    #characters-list .age-table-heading {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: end; } }
+  @media (min-width: 800px) {
+    #characters-list .gender-table-heading {
+      display: grid;
+      grid-template-columns: 40% 60%;
+      align-items: end; }
+    #characters-list .height-table-heading {
+      display: grid;
+      grid-template-columns: 40% 60%;
+      align-items: end; }
+    #characters-list .age-table-heading {
+      display: grid;
+      grid-template-columns: 40% 60%;
+      align-items: end; } }
+  #characters-list .height-sort-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 30px; }
+  #characters-list .age-sort-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 30px; }
+  #characters-list .sort-up, #characters-list .sort-down, #characters-list .filter {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    justify-self: start; }
 
 footer {
   background-color: black;

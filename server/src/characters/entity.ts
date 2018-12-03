@@ -1,5 +1,5 @@
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne} from 'typeorm'
-import { IsString, MinLength, IsNumber} from '../../node_modules/class-validator';
+import { IsString, IsNumber} from '../../node_modules/class-validator';
 import {CharactersMovie} from '../movies/entity'
 import Planet from '../planets/entity'
 

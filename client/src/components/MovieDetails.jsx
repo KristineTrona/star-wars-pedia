@@ -11,12 +11,15 @@ export const MovieDetails = (props) =>{
           <thead>
             <tr>
                 <th>Name</th>
-                <th>Gender
+                <th>
+                  <div className="gender-table-heading">
+                    <div>Gender</div>
 
-                  {/* On click toggles the genderList */}
+                    {/* On click toggles the genderList */}
 
-                  <div className="btn" onClick={props.toggleGenderList}>
-                    <i className="fas fa-sort-down"></i>
+                    <button className="filter" onClick={props.toggleGenderList}>
+                      <i className="fas fa-sort-down"></i>
+                    </button>
                   </div>
 
                   {/* If the list is open, shows all gender filters and the gender that is clicked is set as a filter */}
@@ -32,20 +35,31 @@ export const MovieDetails = (props) =>{
 
                 {/* Clicking on the specific icon calls sortCharacters function with the appropriate parameters */}
 
-                <th>Height
-                  <div className="btn" onClick={() => props.sortCharacters("height", "asc")}>
-                    <i className="fas fa-sort-up"></i>
-                  </div>
-                  <div className="btn" onClick={() => props.sortCharacters("height", "desc")}>
-                    <i className="fas fa-sort-down"></i>
+                <th>
+                  <div className="height-table-heading">
+                    <div>Height</div>
+                    <div className="height-sort-buttons">
+                      <button className="sort-up" onClick={() => props.sortCharacters("height", "asc")}>
+                        <i className="fas fa-sort-up"></i>
+                      </button>
+                      <button className="sort-down" onClick={() => props.sortCharacters("height", "desc")}>
+                        <i className="fas fa-sort-down"></i>
+                      </button>
+                    </div>
                   </div>
                 </th>
-                <th>Birth Year
-                <div className="btn" onClick={() => props.sortCharacters("age", "asc")}>
-                    <i className="fas fa-sort-up"></i>
-                  </div>
-                  <div className="btn" onClick={() => props.sortCharacters("age", "desc")}>
-                    <i className="fas fa-sort-down"></i>
+                
+                <th>
+                  <div className="age-table-heading">
+                    <div>Birth Year</div>
+                    <div className="age-sort-buttons">
+                      <button className="sort-up" onClick={() => props.sortCharacters("age", "asc")}>
+                        <i className="fas fa-sort-up"></i>
+                      </button>
+                      <button className="sort-down" onClick={() => props.sortCharacters("age", "desc")}>
+                        <i className="fas fa-sort-down"></i>
+                      </button>
+                    </div>
                   </div>
                 </th>
                 
