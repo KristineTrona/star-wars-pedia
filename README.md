@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a full-stack Star Wars fanclub website built with Typescript, Koa server, routing controllers, TypeORM and PostgreSQL in the backend and React with Redux in the frontend. 
+This is a full-stack Star Wars fanclub website built with Typescript, Koa server, routing controllers, TypeORM and PostgreSQL in the backend and React with Redux in the frontend. Bootstrap is used for some of the styling and ensuring responsiveness. 
 
 ## Prerequisits
 
